@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:2:{i:0;a:15:{s:2:"Id";i:22;s:3:"sty";i:1;s:3:"tid";i:9;s:4:"name";s:17:"system/databackup";s:6:"isopen";i:0;s:5:"title";s:15:"数据库备份";s:7:"linkurl";s:17:"system/databackup";s:6:"tables";s:0:"";s:9:"martables";s:0:"";s:9:"isspecial";i:0;s:11:"isimportant";i:0;s:5:"isext";i:0;s:4:"icon";s:0:"";s:3:"ord";i:1;s:4:"date";s:19:"2018-03-07 14:56:19";}i:1;a:15:{s:2:"Id";i:23;s:3:"sty";i:1;s:3:"tid";i:9;s:4:"name";s:21:"system/databackuplist";s:6:"isopen";i:0;s:5:"title";s:12:"查看备份";s:7:"linkurl";s:21:"system/databackuplist";s:6:"tables";s:0:"";s:9:"martables";s:0:"";s:9:"isspecial";i:0;s:11:"isimportant";i:0;s:5:"isext";i:0;s:4:"icon";s:0:"";s:3:"ord";i:2;s:4:"date";s:19:"2018-03-07 14:56:32";}}

@@ -1,0 +1,78 @@
+﻿2018-11-07
+ 修改php.ini 的值为 expose_php = Off  默认为 On 此值改的为 response.header 的 x-powered-by
+2018-03-10
+  
+ 修复composer自动更新,添加composer.lock 文件
+
+ 修复 后台权限添加及修改问题
+
+2018-03-14
+  
+ 修复后台3级菜单栏目修改失败的问题
+
+ 1.新增配置函数 getconf(值1,值2) //配置目录未 conf/自定义/config.php
+   使用方法 getconf('自定义')
+ 2.新增配置文件 conf/app/config.php 表示APP的配置项目
+ 
+ 3.后台新增发送记录 包含 短信，微信，邮件，极光推送 
+ 
+ 4.后台发送消息支持 私信，短信，微信（支持发送图片格式），邮件，极光推送
+
+ 5.后台可支持查询接口调用记录 及 APP版本维护 APP接口调用权限
+ 
+ 6.会员新增导出功能 新增 余额充值，会员消费记录查询 会员积分消费记录查询 ，新增 积分，余额的排序
+
+ 7.后台现在充值记录 新增 系统 支付字样，新增导出记录至 excel
+
+ 8.优化产品添加评论规则 及 回复评论 评论列表新增 评论日期，得分的排序
+
+ 9.重写函数 sendemail发送邮件 sendmsg发送短信 sendwxmsg发送微信  letter发送私信 jpush 极光推送 notice 管理员通知 新增isalipay是否为支付宝环境 isweixin 的驼峰写法废除 ,iscli方法.. 稍微看一下..
+
+  后台发送邮件，微信信息，短信信息，微信模板信息，极光推送信息 可在 系统-管理首页-发送记录查询到
+  
+  接口设置 请配置 conf -> app -> config.php 的配置项目 可以配置项为 
+  1.极光 appkey secre 是否为开发环境 推送默认标题 默认token前缀 是否记录API访问记录 接口地址不填写默认 当前域名/api/  默认web调用 的 key 和 secre 建议不要暴露在 web前端
+  1.1 web调用可参考 apiget 及 apipost 方法
+  1.2 接口调用记录 可在 系统-APP管理-接口调用记录 查询
+ 
+ 10.优化后台的缓存机制尽量不浪费数据库资源
+    
+    .现在快递查询接口，且支持3个驱动，详情请查看 kuaidi 函数
+
+2018-05-22
+  
+ 11 邮件服务器，密码加密处理，新增端口号说明 支持SSL，新增邮件debug模式，新增debug参数
+ 
+ 12 优化writelog 函数，在cmd执行（场景，计划任务）执行程序时问题
+
+ 13 解决get获取到空格转换为 + 问题，详情可查询 commom/dwurl 函数，若是还有过滤函数，请加在此系统函数内
+
+ 14 查询短信内置条数，仅限 建周平台
+ 
+ 15 新增数据管理权限，在数据库备份里面直接可视化查询数据信息，且可根据查询语法查询数据，需要通过高级权限认证 认证密码为 md5key的值-auth 
+ 
+ 16 新增SQL管理工具，解决在维护项目时候 快速创建表及字段 ， 屏蔽字段 DELETE（删除数据操作） UPDATE（更改数据操作） TRUNCATE（清空表操作） DROP TABLE（删除表操作） 建议在导入表语法中 DROP TABLE IF EXISTS 'xx' 字样删除 
+ 16.1 方法名：bhadmin/system/tosql
+
+ 17 优化接口调用方式，新增唯一调用接口HEAD及用户Id的加密处理传输，及TOKEN传输方式，详情请 查看 common/apiget , apipost
+ 
+ 18 新增 bhmd5 方法，可解密加密方法，调用方法请查看 common/bhmd5 
+ 
+ 19 表新增 数据标签，详情和使用 查询 tool/bhtag ，要使用请在数据表新建字段值 bhtag 
+
+ 20 新增数据复制功能 详情，tool/bhcopy
+
+2018-05-23
+ 
+ 21 新增数据库优化 sql_opt参数，建议上线开启，开发阶段关闭  tp5好像不会缓存 SHOW COLUMNS，升级thinkphp版本将不会生效，修改thinkphp\library\think\db\connector\Mysql.php getFields方法
+ 
+ 22 .woff/.woff2  application/x-font-woff
+
+数据库优化说明
+ 
+ 本地服务器使用 127.0.0.1
+ 排序尽量简单，且建议使用唯一索引排序
+ select 查询加上 LIMIT 字段 ，查询语法尽量转换为大写 例如 LIMIT WHERE IN ....
+
+    
+ 

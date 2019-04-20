@@ -1,0 +1,20 @@
+<?php
+ return [
+   'index'        => 'home/index/index',
+   'prolist'      => 'home/product/index',
+   'procenter'    => 'home/product/procenter',
+   'coupon'       => 'home/coupon/index',
+   'pmall'        => 'home/pmall/index',
+   'item/:id'     => 'home/product/item',
+   'cart'         => 'home/cart/index',
+   'order'        => 'home/order/index',
+   'login'        => 'home/login/index',
+   'register'     => 'home/register/index',
+   'forget'       => 'home/forget/index',
+   'forget_check' => 'home/forget/check',
+   'im'           => 'home/online/index',
+   'sysim'        => 'home/online/sysonline',
+   'bh315'        => 'home/online/bh315',
+   'article/:id'  => 'home/article/index',
+   'news'         => 'home/news/index',
+ ];

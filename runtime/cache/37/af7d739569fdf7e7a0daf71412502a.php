@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+a:5:{i:0;a:6:{s:4:"name";s:13:"system/sysmod";s:4:"icon";s:0:"";s:5:"isext";i:0;s:7:"linkurl";s:13:"system/sysmod";s:5:"title";s:12:"系统设置";s:2:"Id";i:12;}i:1;a:6:{s:4:"name";s:17:"system/sysaddress";s:4:"icon";s:0:"";s:5:"isext";i:1;s:7:"linkurl";s:17:"system/sysaddress";s:5:"title";s:15:"地址库管理";s:2:"Id";i:118;}i:2;a:6:{s:4:"name";s:17:"system/msghistory";s:4:"icon";s:0:"";s:5:"isext";i:1;s:7:"linkurl";s:17:"system/msghistory";s:5:"title";s:12:"发送记录";s:2:"Id";i:109;}i:3;a:6:{s:4:"name";s:14:"system/syslogs";s:4:"icon";s:5:"cloud";s:5:"isext";i:1;s:7:"linkurl";s:14:"system/syslogs";s:5:"title";s:12:"日志管理";s:2:"Id";i:13;}i:4;a:6:{s:4:"name";s:13:"system/syspic";s:4:"icon";s:7:"picture";s:5:"isext";i:0;s:7:"linkurl";s:13:"system/syspic";s:5:"title";s:12:"图片管理";s:2:"Id";i:14;}}

@@ -1,0 +1,13 @@
+.jOrgChart {
+  margin                : 0px auto;
+  padding               : 20px;
+}
+/* Custom node styling */
+.jOrgChart .node {
+	font-size 			: 14px;
+	background-color 	: #292929;
+	border-radius 		: 2px;
+	color 				: #fff; height:30px !important; width:130px;
+	line-height:30px;  overflow:hidden;
+	text-align:center; word-spacing:normal;
+}

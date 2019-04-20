@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+a:4:{i:0;a:7:{s:2:"Id";i:7;s:4:"name";s:0:"";s:4:"icon";s:5:"gears";s:5:"isext";i:1;s:7:"linkurl";s:0:"";s:6:"isopen";i:0;s:5:"title";s:12:"管理首页";}i:1;a:7:{s:2:"Id";i:8;s:4:"name";s:0:"";s:4:"icon";s:3:"cog";s:5:"isext";i:1;s:7:"linkurl";s:0:"";s:6:"isopen";i:0;s:5:"title";s:15:"管理员设置";}i:2;a:7:{s:2:"Id";i:9;s:4:"name";s:0:"";s:4:"icon";s:8:"database";s:5:"isext";i:1;s:7:"linkurl";s:0:"";s:6:"isopen";i:0;s:5:"title";s:15:"数据库管理";}i:3;a:7:{s:2:"Id";i:105;s:4:"name";s:0:"";s:4:"icon";s:7:"android";s:5:"isext";i:1;s:7:"linkurl";s:0:"";s:6:"isopen";i:0;s:5:"title";s:12:"接口管理";}}
