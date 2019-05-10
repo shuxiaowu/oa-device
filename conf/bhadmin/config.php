@@ -16,7 +16,7 @@ return [
    'tipstime'        => 2,            //提示倒计时秒数
    'login_error_max' => 5,            //输错了多少次封停 1 小时
    'delmore'         => 8,            //批量删除该值时的后悔机制
-   'devcompany'      => '百恒网络',     //开发公司
+   'devcompany'      => '车辆管理',     //开发公司
    'db_backup'       => 'backup',     //数据库备份
    'admin_version'   => '1.1.0',      //版本
    'admin_menu'      => true,        //menu显示方案

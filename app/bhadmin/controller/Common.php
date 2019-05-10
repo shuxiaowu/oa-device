@@ -46,10 +46,21 @@ class Common extends Controller
 		}
 		$topmenuid = ($cmenu) ? $cmenu[0]['Id'] : 0;
 		$topmenuid = (session('?topmenuid')) ? session('topmenuid') : $topmenuid;
+		
 		$this->req = $request;
 		$this->fix = config('database.prefix');
-		$this->adminuid = $adminauth['adminuid'];
-		$this->assign('topmenuid', $topmenuid);
+		// dump($adminauth);exit;
+		$this->adminuid = $adminauth['adminuid'];//id
+		$this->adminuser = $adminauth['adminuser'];//用户名
+		$this->adminname = $adminauth['adminrealname'];//管理员名字
+		$this->admindepid = $adminauth['admindepid'];//部门id
+		$this->adminip = $adminauth['adminip'];//管理员ip
+		$check = '1=1';
+		if($this->admindepid !=1)$check .=' AND adminuid='.$this->adminuid;
+		$dengji = Db::name('usecar')->field('Id,licensenum')->where($check)->select();
+		$this->assign('dengji',$dengji);
+		$this->assign('userid',$this->adminuid);
+		$this->assign('topmenuid',$topmenuid);
 		$this->assign('cmenu', $cmenu);
 		$this->assign('abspath', $this->req->baseFile());
 		$this->assign('authid', $this->getMenuId($aid));
@@ -159,7 +170,6 @@ class Common extends Controller
 			return false;
 		}
 	}
-   
     //组合字段 $model 1表示新增2表示修改 action 1表示post 2表示get common 表示导入常用的数据 $add 表示组合数据
 	protected function fieldArr($field, $add = array(), $common = true, $model = 1, $action = 1)
 	{

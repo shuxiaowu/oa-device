@@ -84,15 +84,15 @@ class Excel extends Common
 
         //获取表单上传文件  
 
-        $file = request()->file('excel');  
-
-        $info = $file->validate(['size'=>1567800,'ext'=>'xlsx,xls,csv'])->move(ROOT_PATH . 'public' . DS . 'excel');  
+        $file = request()->file('excelData');  
+            // var_dump($file);exit;
+        $info = $file->validate(['size'=>1567800,'ext'=>'xlsx,xls,csv'])->move(ROOT_PATH . 'uploads' . DS .'files' .  DS . 'excel');  
 
         if($info){  
 
             $exclePath = $info->getSaveName();  //获取文件名  
 
-            $file_name = ROOT_PATH . 'public' . DS . 'excel' . DS . $exclePath;   //上传文件的地址  
+            $file_name = ROOT_PATH . 'uploads' . DS .'files' . DS .'excel' . DS . $exclePath;   //上传文件的地址  
 
             $objReader =\PHPExcel_IOFactory::createReader('Excel5');  
 
@@ -104,45 +104,42 @@ class Excel extends Common
 
             array_shift($excel_array);  //删除第一个数组(标题);  
 
-             
-
             $data = [];  
 
-            $i=0;  
+            $index=0;  
+           for ($i=2; $i <  count($excel_array); $i++) { 
+            $devtype = Db::name('assetstype')->field('Id')->where(['topic'=>$excel_array[2][3]])->find();
+            $source = Db::name('assetssource')->field('Id')->where(['topic'=>$excel_array[2][6]])->find();
+               $data[$i]['devno'] =$excel_array[2][1];//资产编码
+               $data[$i]['devname'] =$excel_array[2][2];//资产名称
+               $data[$i]['devtype'] =1;//资产类别
+               $data[$i]['rkdate'] =date('Y-m-d',strtotime($excel_array[2][4]));//入库时间
+               $data[$i]['brand'] =$excel_array[2][5];//品牌
+               $data[$i]['source'] =1;//来源
+               $data[$i]['devxh'] =$excel_array[2][7];//型号
+               $data[$i]['channel'] =$excel_array[2][8];//渠道
+               $data[$i]['price'] =$excel_array[2][9];//金额
+               $data[$i]['buydate'] =date('Y-m-d',strtotime($excel_array[2][10])) ;//购入时间
+               $data[$i]['uselimit'] =$excel_array[2][11];//使用期限
+               $data[$i]['sn'] =$excel_array[2][12];//SN号
+               $data[$i]['bxsdate'] =date('Y-m-d',strtotime($excel_array[2][13]));//保修起始时间
+               $data[$i]['bxedate'] =date('Y-m-d',strtotime($excel_array[2][14]));//过保时间
+               // $data['brand'] =$excel_array[2][6];//SN号
+               // $data['brand'] =$excel_array[2][6];//SN号
+               // $data['brand'] =$excel_array[2][6];//SN号
+                 $index++;
+           }
+           // dump($data);
+           // exit;
+           $success=Db::name('assets')->insertAll($data); //批量插入数据  
+            if($success){                                         
+                     $this->success("导入成功");
+            }else{
+                $this->error("导入失败,原因可能是【专利信息】重复，及表格式错误",url('assets/assetslist'));// 提示错误
+            }
+           // $error=$i-$success;  
 
-            foreach($excel_array as $k=>$v) {  
-
-                 
-
-                $data[$k]['title'] = $v[1]; 
-
-                $data[$k]['optiona'] = $v[2];   
-
-                $data[$k]['optionb'] = $v[3];   
-
-                $data[$k]['optionc'] = $v[4];   
-
-                $data[$k]['optiond'] = $v[5];   
-
-                $data[$k]['optione'] = $v[6];   
-
-                $data[$k]['optionf'] = $v[7];   
-
-                $data[$k]['time']    = date('Y-m-d H:i:s',time());
-
-                $data[$k]['themeid'] = $themeid;
-
-                $i++;  
-
-            }  
-
-           $success=Db::name('sleeptopic')->insertAll($data); //批量插入数据  
-
-           //$i=  
-
-           $error=$i-$success;  
-
-            echo "总{$i}条，成功{$success}条，失败{$error}条。";  
+           //  echo "总{$i}条，成功{$success}条，失败{$error}条。";  
 
            // Db::name('t_station')->insertAll($city); //批量插入数据  
 

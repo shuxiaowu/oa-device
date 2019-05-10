@@ -1,3 +1,0 @@
----------------------------------------------------------------
-[ 2019-04-19T14:21:43+08:00 ] 192.168.0.15 POST 192.168.0.200/oa-device/bhadmin/assets/assetsadd.html
-[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'bxsdate' at row 1[D:\phpStudy\PHPTutorial\WWW\oa-device\thinkphp\library\think\db\Connection.php:453]

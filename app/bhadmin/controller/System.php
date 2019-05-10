@@ -365,7 +365,7 @@ class System extends Common
 
 	public function admindepartment()
 	{
-		$this->pageDisplay(array('title' => '部门管理列表', 'tables' => 'admindepartment', 'order' => 'ord ASC'));
+		$this->pageDisplay(array('title' => '管理列表', 'tables' => 'admindepartment', 'order' => 'ord ASC'));
 		return view();
 	}
 
@@ -377,7 +377,7 @@ class System extends Common
 				$topmenu[$key]['mdata'] = Db::name('adminauth')->field('Id,title,isimportant')->where('1=1 AND tid=' . $val['Id'])->order('ord ASC')->select();
 			}
 		}
-		return $this->fetch('', ['activeid' => 77, 'title' => '添加管理部门', 'adminauths' => $topmenu]);
+		return $this->fetch('', ['activeid' => 77, 'title' => '添加单位', 'adminauths' => $topmenu]);
 	}
 
 	public function createdepartment()
@@ -418,7 +418,7 @@ class System extends Common
 					$topmenu[$key]['mdata'] = Db::name('adminauth')->field('Id,title,isimportant')->where('1=1 AND tid=' . $val['Id'])->order('ord ASC')->select();
 				}
 			}
-			return $this->fetch('', ['activeid' => 77, 'title' => '部门编辑', 'data' => $data, 'adminauths' => $topmenu]);
+			return $this->fetch('', ['activeid' => 77, 'title' => '单位编辑', 'data' => $data, 'adminauths' => $topmenu]);
 		} else if ($save == '确定修改') {
 			$topic = input('post.topic', '');
 			$ord = input('post.ord', '');
@@ -615,12 +615,17 @@ class System extends Common
 		$data = Db::name("adminuser")->field('*')->where(array('Id' => $id))->find();
 		if (!$data) $this->error('资料不存在，请重新操作！');
 		if ($save == '') {
-			return $this->fetch('', ['activeid' => 20, 'title' => '用户编辑', 'data' => $data, 'admindep' => $this->getSelect('admindepartment')]);
+			return $this->fetch('', ['activeid' => 20, 'title' => '编辑', 'data' => $data, 'admindep' => $this->getSelect('admindepartment')]);
 		} else if ($save == '确定修改') {
 			$pass = input('post.pass', '');
 			$name = input('post.name', '');
+			$principal = input('post.principal', '');
+			$contact = input('post.contact', '');
+			$telephone = input('post.telephone', '');
+			$address = input('post.address', '');
+			$state = input('post.state', '');
 			$depid = input('post.depid', 0, 'intval');
-			$result = Db::name("adminuser")->where(array('Id' => $id))->update(array('realname' => $name, 'depid' => $depid, 'last_time' => dates()));
+			$result = Db::name("adminuser")->where(array('Id' => $id))->update(array('realname' => $name, 'depid' => $depid,'principal' => $principal,'contact' => $contact,'telephone' => $telephone,'address' => $address,'depid' => $depid, 'last_time' => dates()));
 			if ($result) {
 				if ($pass != '') model('AdminUser')->modpass($pass, $id);
 				$this->success('数据更新成功');
@@ -632,7 +637,7 @@ class System extends Common
 
 	public function useradd()
 	{
-		return $this->fetch('', ['activeid' => 20, 'title' => '添加管理员', 'admindep' => $this->getSelect('admindepartment')]);
+		return $this->fetch('', ['activeid' => 20, 'title' => '添加', 'admindep' => $this->getSelect('admindepartment')]);
 	}
 
 	public function createuser()
@@ -643,12 +648,12 @@ class System extends Common
 		$depid = input('post.depid', 0, 'intval');
 		if ($user != '' && $pass != '' && $name != '') {
 			if (model("AdminUser")->adduser($user, $pass, $name, $depid)) {
-				$this->success('管理员添加成功', url('system/userlist'));
+				$this->success('添加成功', url('system/userlist'));
 			} else {
-				$this->success('管理员添加失败，请重试', url('system/useradd'));
+				$this->success('添加失败，请重试', url('system/useradd'));
 			}
 		} else {
-			$this->error('请先完善管理员信息', url('system/useradd'));
+			$this->error('请先完善信息', url('system/useradd'));
 		}
 	}
 

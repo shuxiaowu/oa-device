@@ -1,0 +1,18 @@
+---------------------------------------------------------------
+[ 2019-05-08T15:33:22+08:00 ] 192.168.0.200 POST 192.168.0.200/car-oa/bhadmin/assets/sealadd.html
+[ error ] [0]数据表字段不存在:[fcdatestart][D:\phpStudy\PHPTutorial\WWW\car-oa\thinkphp\library\think\db\Builder.php:115]
+---------------------------------------------------------------
+[ 2019-05-08T15:48:58+08:00 ] 192.168.0.200 GET 192.168.0.200/car-oa/bhadmin/index/index.html
+[ error ] [8]未定义变量: count_3[D:\phpStudy\PHPTutorial\WWW\car-oa\runtime\temp\37d9cab462ce9a0da654bd5650d36e69.php:115]
+---------------------------------------------------------------
+[ 2019-05-08T15:49:06+08:00 ] 192.168.0.200 GET 192.168.0.200/car-oa/bhadmin/index/index.html
+[ error ] [8]未定义变量: count_3[D:\phpStudy\PHPTutorial\WWW\car-oa\runtime\temp\37d9cab462ce9a0da654bd5650d36e69.php:115]
+---------------------------------------------------------------
+[ 2019-05-08T15:50:43+08:00 ] 192.168.0.200 GET 192.168.0.200/car-oa/bhadmin/index/index.html
+[ error ] [8]未定义变量: chartx[D:\phpStudy\PHPTutorial\WWW\car-oa\runtime\temp\37d9cab462ce9a0da654bd5650d36e69.php:205]
+---------------------------------------------------------------
+[ 2019-05-08T16:00:21+08:00 ] 192.168.0.200 GET 192.168.0.200/car-oa/bhadmin/assets/qifenglist.html
+[ error ] [8]未定义数组索引: qfreson[D:\phpStudy\PHPTutorial\WWW\car-oa\runtime\temp\9c8431b3fd8de613c0473bfd7911e2f0.php:118]
+---------------------------------------------------------------
+[ 2019-05-08T16:04:21+08:00 ] 192.168.0.200 POST 192.168.0.200/car-oa/bhadmin/assets/qifengadd.html
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'Id' doesn't have a default value[D:\phpStudy\PHPTutorial\WWW\car-oa\thinkphp\library\think\db\Connection.php:453]

@@ -66,14 +66,14 @@ div,input{margin:0; padding:0;-webkit-appearance: none;}
 <if condition="$data['adminpath'] eq ''">
  <form name="bhadmin" method="post" action="">
  <div class="i-login">
-   <div class="logo"><img src="__img__/logo.png"></div>
+   <div class="logo"><img src="__img__/logo.png" width="100%"></div>
    <div class="i-logindiv">    
      <div class="i-loginbody">
        <div class="i-user-div"><input type="text" value="" placeholder="用户名" class="i-user"></div>
        <div class="i-pass-div"><input type="password" value="" placeholder="密码" class="i-pass"></div>
        <div class="i-code-div"><input type="text" value="" placeholder="验证码" maxlength="4" class="i-code"><div id="code-verify"></div></div>
        <div class="i-btn-div"><div class="i-login-btn">登录</div> </div>
-       <div class="i-loginfoot"> <a href="http://www.jxbh.cn" target="_blank">Powered by jxbh</a> </div>
+     <!--   <div class="i-loginfoot"> <a href="http://www.jxbh.cn" target="_blank">Powered by jxbh</a> </div> -->
      </div> 
    </div>
  </div>

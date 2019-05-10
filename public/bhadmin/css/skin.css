@@ -11,9 +11,9 @@ body{ background-color:#f2f2f2;}
 .u-siderbar-ul li.u-li-active a{ color:#333;}
 .u-sidebar .u-sidebar-bottom{ position:absolute; bottom:0; left:0; width:100%; height:50px; line-height:50px;  overflow:hidden; padding:0 10px; box-sizing:border-box; color:#fff; background-color:#262a36; cursor:pointer;}
 
-.u-siderbar-two{ width:130px; height:100%; position:fixed; top:0; left:90px; background-color:#fff; border-right:solid 1px #e3e3e3; overflow:hidden; overflow-y:auto; box-sizing:border-box;}
+.u-siderbar-two{ width:140px; height:100%; position:fixed; top:0; left:90px; background-color:#fff; border-right:solid 1px #e3e3e3; overflow:hidden; overflow-y:auto; box-sizing:border-box;}
 .u-siderbar-two .u-siderbar-title{ width:100%; height:50px;padding-left:20px; font-size:16px; line-height:50px; color:#333; border-bottom:solid 1px #f2f2f2; }
-.u-siderbar-two dl{ width:100px; margin:0px auto;}
+.u-siderbar-two dl{ width:110px; margin:0px auto;}
 .u-siderbar-two dl dt{ font-weight:normal; height:32px; line-height:32px;margin-top:10px;border-radius: 2px;}
 .u-siderbar-two dl dd{font-size: 14px;height: 32px;line-height: 32px;overflow: hidden;cursor: pointer;border-radius: 2px; margin:5px auto;}
 .u-siderbar-two dl dd a{ color:#666; font-size:12px; padding-left:17px; display:block;}

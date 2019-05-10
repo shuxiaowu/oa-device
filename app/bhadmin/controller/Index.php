@@ -141,13 +141,14 @@ class Index extends Controller
 	
 	private function getscene()
 	{
-		$month  = date('m');
-		$bg     = '';
-		$scene  = '';
-		if ( $month < 4 ) {$bg = 'spring.jpg'; $scene = '惊蛰,桃始华、仓庚鸣、鹰化为鸠';}
-		if ( $month > 3 && $month < 7 ) {$bg = 'summer.jpg';$scene = '夏至,鹿角解、蜩始鸣、半夏生';}
-		if ( $month > 6 && $month < 10 ) {$bg = 'fall.jpg';$scene = '秋分,雷始收声、蛰虫坯户、水始涸';}
-		if ( $month > 9 ){$bg = 'winter.jpg'; $scene = '立冬,水始冰、地始冻、雉入大水为蜃'; }
+		// $month  = date('m');
+		// $bg     = '';
+		// $scene  = '';
+		// if ( $month < 4 ) {$bg = 'spring.jpg'; $scene = '惊蛰,桃始华、仓庚鸣、鹰化为鸠';}
+		// if ( $month > 3 && $month < 7 ) {$bg = 'summer.jpg';$scene = '夏至,鹿角解、蜩始鸣、半夏生';}
+		// if ( $month > 6 && $month < 10 ) {$bg = 'fall.jpg';$scene = '秋分,雷始收声、蛰虫坯户、水始涸';}
+		// if ( $month > 9 ){$bg = 'winter.jpg'; $scene = '立冬,水始冰、地始冻、雉入大水为蜃'; }
+		$bg = 'summer.jpg';$scene = '';
 		return ['bg'=>$bg,'scene'=>$scene];
 	}
 
@@ -187,7 +188,7 @@ class Index extends Controller
 
 	public function logincode()
 	{
-		$config = array('length' => 4, 'useImgBg' => false, 'useNoise' => false, 'useCurve' => false, 'fontttf' => '7.ttf', 'bg' => array('255', '255', '255'), 'imageW' => '97', 'imageH' => '27', 'fontSize' => '13', 'useZh' => false);
+		$config = array('length' => 4, 'useImgBg' => false, 'useNoise' => false, 'useCurve' => true, 'fontttf' => '7.ttf', 'bg' => array('255', '255', '255'), 'imageW' => '97', 'imageH' => '27', 'fontSize' => '13', 'useZh' => false);
 		$verify = new \verify\Verify($config);
 		ob_clean();
 		$verify->entry();

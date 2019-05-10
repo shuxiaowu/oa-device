@@ -6,15 +6,35 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="{:tabstyle()}">
    <tr>
     <td width="10%" height="32" align="right" valign="middle">登录ID：</td>
-    <td height="32" align="left">{:inputs(array('name'=>'user','val'=>$data['user'],'icon'=>'user','width'=>15,'disabled'=>1))}</td>
+    <td height="32" align="left">{:inputs(array('name'=>'user','val'=>$data['user'],'icon'=>'minus','width'=>15,'disabled'=>1))}</td>
    </tr>
    <tr>
-     <td height="32" align="right" valign="middle">姓名：</td>
+     <td height="32" align="right" valign="middle">单位名称：</td>
      <td height="32" align="left">{:inputs(array('name'=>'name','val'=>$data['realname'],'icon'=>'user','width'=>15))}</td>
    </tr>
    <tr>
-     <td height="32" align="right" valign="middle">选择部门：</td>
-     <td height="32" align="left">{:dropdown($admindep,$data['depid'],gtopic('admindepartment',$data['depid'],'topic','请选择一个部门'),'depid')}</td>
+     <td height="32" align="right" valign="middle">选择权限：</td>
+     <td height="32" align="left">{:dropdown($admindep,$data['depid'],gtopic('admindepartment',$data['depid'],'topic','请选择一个权限'),'depid')}</td>
+   </tr>
+    <tr>
+     <td height="32" align="right" valign="middle">负责人：</td>
+     <td height="32" align="left">{:inputs(array('name'=>'principal','val'=>$data['principal'],'icon'=>'user','width'=>18,'place'=>'负责人'))}</td>
+   </tr>
+    <tr>
+     <td height="32" align="right" valign="middle">联系方式：</td>
+     <td height="32" align="left">{:inputs(array('name'=>'contact','val'=>$data['contact'],'icon'=>'phone','width'=>18,'place'=>'联系方式'))}</td>
+   </tr>
+    <tr>
+     <td height="32" align="right" valign="middle">单位电话：</td>
+     <td height="32" align="left">{:inputs(array('name'=>'telephone','val'=>$data['telephone'],'icon'=>'earphone','width'=>18,'place'=>'单位电话'))}</td>
+   </tr>
+    <tr>
+     <td height="32" align="right" valign="middle">地址：</td>
+     <td height="32" align="left">{:inputs(array('name'=>'address','val'=>$data['address'],'icon'=>'map-marker','width'=>18,'place'=>'地址'))}</td>
+   </tr>
+    <tr>
+     <td height="32" align="right" valign="middle">状态：</td>
+     <td height="32" align="left">{:inputs(array('name'=>'state','val'=>$data['state'],'icon'=>'record','width'=>18,'place'=>'状态'))}</td>
    </tr>
    <tr>
      <td height="32" align="right" valign="middle">修改密码：</td>

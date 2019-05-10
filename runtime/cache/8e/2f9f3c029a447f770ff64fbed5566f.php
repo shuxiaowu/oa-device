@@ -1,4 +1,0 @@
-<?php
-//000000003600
- exit();?>
-a:4:{i:0;a:6:{s:4:"name";s:16:"system/adminauth";s:4:"icon";s:0:"";s:5:"isext";i:0;s:7:"linkurl";s:16:"system/adminauth";s:5:"title";s:12:"栏目管理";s:2:"Id";i:19;}i:1;a:6:{s:4:"name";s:22:"system/admindepartment";s:4:"icon";s:0:"";s:5:"isext";i:1;s:7:"linkurl";s:22:"system/admindepartment";s:5:"title";s:12:"部门管理";s:2:"Id";i:77;}i:2;a:6:{s:4:"name";s:15:"system/userlist";s:4:"icon";s:0:"";s:5:"isext";i:0;s:7:"linkurl";s:15:"system/userlist";s:5:"title";s:12:"管理用户";s:2:"Id";i:20;}i:3;a:6:{s:4:"name";s:14:"system/history";s:4:"icon";s:0:"";s:5:"isext";i:0;s:7:"linkurl";s:14:"system/history";s:5:"title";s:12:"登录日志";s:2:"Id";i:21;}}

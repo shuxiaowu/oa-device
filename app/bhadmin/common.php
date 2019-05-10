@@ -165,6 +165,7 @@
 	  $picon = isset($conf['picon']) ? $conf['picon'] : '';
 	  $tips = isset($conf['tips']) ? tooltip($conf['tips'], 'right') : '';
 	  $type = isset($conf['type']) ? $conf['type'] : 'text';
+	  $autocomplete = isset($conf['autocomplete']) ? $conf['autocomplete'] : '';
 	  $width = isset($conf['width']) ? ' style="width:' . ($conf['width'] * 10) . 'px"' : ' style="width:400px;"';
 	  $disabled = isset($conf['disabled']) ? ' disabled="disabled"' : '';
 	  $readonly = isset($conf['readonly']) ? ' readonly="readonly"' : '';
@@ -180,7 +181,7 @@
 	  if ($scene == 'ord' && $val == '') $val = 1;
 	  $baseclass = 'input-group input-group-sm' . $has;
 	  if ($type == 'text' || $type == 'password') {
-		  $input = "<input type='$type' value='$val'$place name='$name' class='$cname$add'$disabled$readonly>";
+		  $input = "<input type='$type' value='$val'$place name='$name' autocomplete='$autocomplete' class='$cname$add'$disabled$readonly>";
 		  if ($scene != '') {
 			  if ($scene == 'tag') return '<div' . $width . '><input type="text" class="form-control' . $add . '"' . $width . ' name="' . $name . '" placeholder="tag值回车输入下一个" value="' . $val . '" data-role="tagsinput"></div>';
 			  if ($scene == 'date') return '<div class="' . $baseclass . '"' . $tips . ' style="width:190px;"><input type="text" value="' . $val . '" name="' . $name . '" class="input-time ' . $cname . $add . '"' . $disabled . '><span class="input-group-addon">' . icon('calendar') . '</span></div>';
@@ -196,10 +197,11 @@
 		  if ($faicon != '') return '<div class="' . $baseclass . '"' . $width . $tips . '>' . $input . '<span class="input-group-addon">' . faicon($faicon) . '</span></div>';
 		  if ($picon != '') return '<div class="' . $baseclass . '"' . $width . $tips . '>' . $input . '<span class="input-group-addon">' . picon($faicon) . '</span></div>';
 		  if ($units != '') return '<div class="' . $baseclass . '"' . $width . $tips . '>' . $input . '<span class="input-group-addon">' . $units . '</span></div>';
-		  return "<input type='$type' value='$val'$place$width name='$name' class='$cname$add'$disabled$readonly>" . $tips;
+		  return "<input type='$type' autocomplete='$autocomplete' value='$val'$place$width name='$name' class='$cname$add'$disabled$readonly>" . $tips;
 	  }
 	  if ($type == 'textarea') return "<textarea name='$name'$place class='mytextarea $cname$add'>$val</textarea>$tips";
 	  if ($type == 'editor') return "<textarea name='$name'.$place class='mytextarea $cname$add' style='width:95%;height:400px;'>$val</textarea>";
+	  if($type == 'number') return "<input type='$type' value='$val'$place name='$name' class='$cname$add'$disabled$readonly . $width>";
   }
   
   function modField($val = '', $id = 0, $field = '', $tables = '')
@@ -376,11 +378,10 @@
 		  return '<div class="btn-group" data-id="' . $id . '" data-tables="' . $tables . '" data-field="' . $field . '" data-tip1="' . $tip[0] . '" data-tip2="' . $tip[1] . '"><button type="button" tabindex="999" class="btn btn-roundeds btn-default btn-xs btn-enabled" data-mark="1" data-toggle="tooltip" data-placement="top" title="点击' . $tip[0] . '数据">' . $tip[0] . '</button><button type="button" tabindex="999" class="btn btn-default btn-roundeds btn-xs btn-disabled active" data-mark="2" data-toggle="tooltip" data-placement="top" title="点击' . $tip[1] . '数据">' . $tip[1] . '</button></div>';
 	  }
   }
-   
    //下拉
-  function dropdown($data, $id = 0, $sel = '请选择类别', $name = "inftype")
+  function dropdown($data, $id = 0, $sel = '请选择', $name = "inftype",$topic = "topic")
   {
-	  $sel = ($sel != '') ? $sel : '请选择类别';
+	  $sel = ($sel != '') ? $sel : '请选择';
 	  $return = '<div class="btn-group btn-dropdown"><input type="hidden" value="' . $id . '" id="' . $name . '" class="drop-val" name="' . $name . '"><button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="drop-topic">' . $sel . '</span> <span class="caret"></span></button>';
 	  if ($data == 1) $data = array(0 => array('Id' => 2, 'topic' => '启用'), 1 => array('Id' => 1, 'topic' => '禁用'));
 	  if ($data == 2) $data = array(0 => array('Id' => 2, 'topic' => '置顶'), 1 => array('Id' => 1, 'topic' => '非置顶'));
@@ -388,11 +389,11 @@
 	  if ($data == 4) $data = array(0 => array('Id' => 1, 'topic' => '推荐中'), 1 => array('Id' => 2, 'topic' => '跟进中'), 2 => array('Id' => 3, 'topic' => '已到访'), 3 => array('Id' => 4, 'topic' => '已认购'), 4 => array('Id' => 5, 'topic' => '团购费'), 5 => array('Id' => 6, 'topic' => '已签约'), 6 => array('Id' => 7, 'topic' => '结佣中'), 7 => array('Id' => 8, 'topic' => '信息无效'));
 	  if ($data && is_array($data) > 0) {
 		  $return .= '<ul class="dropdown-menu dropdown-type">';
-		  $sel = (!$id) ? $sel : '请选择一项';
+		  $sel = (!$id) ? $sel : '请选择';
 		  $return .= '<li><a href="javascript:void(0)" data-id="0">' . $sel . '</a></li>';
 		  $return .= '<li role="separator" class="divider"></li>';
 		  foreach ($data as $mrkey => $marval) {
-			  $return .= '<li><a href="javascript:void(0)" data-id="' . $marval['Id'] . '">' . $marval['topic'] . '</a></li>';
+			  $return .= '<li><a href="javascript:void(0)" data-id="' . $marval['Id'] . '">' . $marval[$topic] . '</a></li>';
 		  }
 		  $return .= '</ul>';
 	  }
@@ -491,7 +492,10 @@
   {
 	  return date("Y-m-d H:i:s");
   }
-  
+    function datem()
+  {
+	  return date("Y-m-d");
+  }
   function showdate($date)
   {
 	  return ($date != '') ? date("Y-m-d", strtotime($date)) : '--';
@@ -520,7 +524,6 @@
 		  return $default;
 	  }
   }
-   
    //获取栏目
   function getMenu($topmenuid = 0)
   {
@@ -877,4 +880,35 @@
       }
   }
    
+   // isaccident
+  function isaccident($data){
+  	switch ($data) {
+  		case '1':
+  			return '有';
+  			break;
+  		case '2':
+  			return '没有';
+  			break;
+  		default:
+  			return '请选择';
+  			break;
+  	}
+  }
+     // travelstatus
+  function travelstatus($data){
+  	switch ($data) {
+  		case '1':
+  			return '报废';
+  			break;
+  		case '2':
+  			return '拍卖';
+  			break;
+  		case '3':
+  			return '使用';
+  			break;
+  		default:
+  			return '请选择';
+  			break;
+  	}
+  }
    

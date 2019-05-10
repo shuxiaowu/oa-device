@@ -26,7 +26,6 @@
         <ul>
           <li><a href="{:url('bhadmin/index/index')}">系统首页</a></li>
           <li><a href="{:url('bhadmin/index/modpass')}">修改密码</a></li>
-          <li><a href="http://www.jxbh.cn" target="_blank">关于百恒</a></li>
           <li><a href="javascript:void(0)" class="lockscreen">系统锁屏</a></li>
           <li><a href="{:url('bhadmin/index/logout')}">安全退出</a></li>
         </ul>
@@ -35,7 +34,7 @@
     </div>
   </div>
   <div class="u-siderbar-two">
-     <!--<div class="u-siderbar-title">栏目管理</div>-->
+     <div class="u-siderbar-title">栏目管理</div>
      <volist name="menu" id="io">
        <in name="io['Id']" value="$myauth">
          <dl>
@@ -68,7 +67,6 @@
       echo '系统设置';
     }
     ?>
-    <li><a href="http://www.jxbh.cn" target="_blank"><i class="pli-home"></i> 关于百恒</a></li>
     <li><a href="{:url('bhadmin/index/cleancache')}"><i class="pli-recycling"></i> 清除缓存</a></li>
   </div>
   <div class="u-main"><block name="main"></block></div>
